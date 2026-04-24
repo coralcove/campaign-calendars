@@ -17,11 +17,11 @@
 
   <script>
     // ============================================================
-    // CONFIG — FILL IN THESE 20 FIELDS ONLY. DO NOT EDIT BELOW.
+    // CONFIG — FILL IN THESE FIELDS ONLY. DO NOT EDIT BELOW.
     // ============================================================
     const CONFIG = {
       // Property
-      address:       "495 Marquesa Cir",
+      address:         "495 Marquesa Cir",
       city:          "St Johns",
       state:         "FL",
       zip:           "32259",
@@ -33,7 +33,7 @@
       neighborhood:  "Beachwalk",
 
       // Agent
-      agentName:     "Iviannette Figueroa",
+       agentName:     "Iviannette Figueroa",
       agentFirst:    "Iviannette",
       brokerage:     "1 Realty Corp",
       agentPhone:    "(904) 826-5890",
@@ -47,12 +47,13 @@
       openHouseTime: "1:00–4:00 PM",
 
       // Coral Cove Contact
-      csName:        "Melissa",
+        csName:        "Melissa",
       csPhone:       "(904) 478-8600",
       packagePrice:  "$600",
 
-      // Deliverables (HDPH delivery link — paste from delivery email)
-         deliveryUrl:   "https://coralcovemedia.hd.pics/Media/marketingkit2.asp?nSiteID=2994128",
+      // Deliverables — paste links from HDPH delivery email
+      mediaUrl:        "https://coralcovemedia.hd.pics/Media/download2.asp?A019C4CEBB714871B321018A7CCFC89F",   // Photos & video download link
+      marketingKitUrl: "https://coralcovemedia.hd.pics/Media/marketingkit2.asp?nSiteID=2994128",   // Marketing kit page link
     };
     // ============================================================
     // END CONFIG — DO NOT EDIT ANYTHING BELOW THIS LINE
@@ -114,9 +115,7 @@
       color: rgba(255,255,255,0.55);
       letter-spacing: 0.5px;
     }
-    .header-property {
-      padding: 18px 0 20px;
-    }
+    .header-property { padding: 18px 0 20px; }
     .property-address {
       font-size: 22px;
       font-weight: 700;
@@ -184,11 +183,7 @@
       gap: 10px;
       padding: 6px 20px 4px;
     }
-    .phase-bar {
-      height: 3px;
-      border-radius: 2px;
-      flex: 1;
-    }
+    .phase-bar { height: 3px; border-radius: 2px; flex: 1; }
     .phase-label {
       font-size: 10px;
       font-weight: 700;
@@ -242,16 +237,8 @@
       align-items: flex-end;
       gap: 4px;
     }
-    .status-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--border);
-    }
-    .chevron {
-      font-size: 12px;
-      color: var(--muted);
-      transition: transform 0.2s;
-    }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+    .chevron { font-size: 12px; color: var(--muted); transition: transform 0.2s; }
 
     .card-body {
       display: none;
@@ -281,13 +268,7 @@
     .task-text { flex: 1; min-width: 0; }
     .task-name { font-size: 13px; font-weight: 600; line-height: 1.3; }
     .task-desc { font-size: 12px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
-    .task-time {
-      font-size: 11px;
-      color: var(--muted);
-      white-space: nowrap;
-      flex-shrink: 0;
-      font-weight: 600;
-    }
+    .task-time { font-size: 11px; color: var(--muted); white-space: nowrap; flex-shrink: 0; font-weight: 600; }
 
     /* ─── NOTE BOXES ─── */
     .note-box {
@@ -300,6 +281,51 @@
     .note-box.teal { background: #e8f5f3; border-left: 3px solid var(--teal); color: #1a5a52; }
     .note-box.gold { background: #fdf5e6; border-left: 3px solid var(--gold); color: #7a5510; }
     .note-box.blue { background: #e8f0fa; border-left: 3px solid var(--blue); color: #1a4070; }
+
+    /* ─── CAPTION BOX ─── */
+    .caption-wrap {
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .caption-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: #f4f7f9;
+      border-bottom: 1px solid var(--border);
+    }
+    .caption-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .copy-btn {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal);
+      background: none;
+      border: 1px solid var(--teal);
+      border-radius: 5px;
+      padding: 3px 10px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      letter-spacing: 0.3px;
+    }
+    .copy-btn:active { background: var(--teal); color: white; }
+    .copy-btn.copied { background: var(--green); color: white; border-color: var(--green); }
+    .caption-text {
+      padding: 10px 12px;
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--text);
+      white-space: pre-wrap;
+      background: white;
+    }
 
     /* ─── SUMMARY WIDGET ─── */
     .summary-card {
@@ -316,10 +342,7 @@
       gap: 1px;
       background: var(--border);
     }
-    .summary-cell {
-      background: var(--white);
-      padding: 14px 16px;
-    }
+    .summary-cell { background: var(--white); padding: 14px 16px; }
     .summary-cell.full { grid-column: 1 / -1; }
     .summary-key { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
     .summary-val { font-size: 16px; font-weight: 700; color: var(--text); }
@@ -346,7 +369,6 @@
     .c-email   { background: #fff4e6; color: var(--orange); }
     .c-open    { background: #ffeaea; color: var(--red); }
     .c-follow  { background: #e8f5f0; color: var(--green); }
-    .c-gold    { background: #fff8e1; color: var(--gold); }
     .phase-shoot  { color: var(--blue); }
     .phase-live   { color: var(--green); }
     .phase-push   { color: var(--purple); }
@@ -420,6 +442,31 @@
   </div>
 </div>
 
+<!-- ─── DELIVERABLES ─── -->
+<div id="deliverables-section" style="display:none">
+  <div class="section-label">Your Deliverables</div>
+  <div class="summary-card" style="margin-bottom:8px">
+    <div style="padding:16px">
+      <div class="summary-key" style="margin-bottom:10px">Media Package — Ready to Download</div>
+      <div id="delivery-buttons" style="display:flex;flex-direction:column;gap:10px"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border-top:1px solid var(--border)">
+      <div style="background:white;padding:12px;text-align:center">
+        <div style="font-size:18px;margin-bottom:4px">📸</div>
+        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px">Photos</div>
+      </div>
+      <div style="background:white;padding:12px;text-align:center">
+        <div style="font-size:18px;margin-bottom:4px">🎬</div>
+        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px">Video</div>
+      </div>
+      <div style="background:white;padding:12px;text-align:center">
+        <div style="font-size:18px;margin-bottom:4px">📱</div>
+        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px">Social</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ─── CALENDAR ─── -->
 <div class="section-label">Campaign Schedule</div>
 <div id="calendar-root"></div>
@@ -452,23 +499,15 @@
   function initials(name) {
     return name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
   }
-
-  // Parse a date string like "Mon May 11, 2026"
-  function parseDate(str) {
-    return new Date(str);
-  }
-
-  // Add N calendar days
+  function parseDate(str) { return new Date(str); }
   function addDays(date, n) {
     const d = new Date(date);
     d.setDate(d.getDate() + n);
     return d;
   }
-
-  // Format: "Mon", "11", "May 11"
   function fmt(date, mode) {
-    const DOW  = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-    const MON  = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     if (mode === "dow")   return DOW[date.getDay()];
     if (mode === "dom")   return date.getDate();
     if (mode === "short") return MON[date.getMonth()] + " " + date.getDate();
@@ -476,23 +515,52 @@
     return "";
   }
 
-  // ── Populate header ──────────────────────────────────────────
+  // ── Hashtag helper ───────────────────────────────────────────
+  function ht(str) { return str.replace(/\s+/g, "").replace(/[^a-zA-Z0-9]/g, ""); }
+
+  // ── Caption generator ────────────────────────────────────────
   const C = CONFIG;
+  const tags = `#${ht(C.neighborhood)} #${ht(C.city)}FL #JustListed #RealEstate`;
+
+  function caption(type) {
+    switch (type) {
+
+      case "launch":
+        return `✨ Just Listed in ${C.neighborhood}!\n\n${C.address} · ${C.city}, ${C.state} ${C.zip}\n${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\nListed at ${C.price}\n\n${C.highlights.split(",").map(h => "✅ " + h.trim()).join("\n")}\n\n📲 DM or call ${C.agentFirst} to schedule your private tour.\n${C.agentPhone}\n\n${tags} #NewListing`;
+
+      case "feature":
+        return `Have you seen ${C.address} yet? 👀\n\nHere's what makes this one stand out:\n${C.highlights.split(",").map(h => "→ " + h.trim()).join("\n")}\n\n${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft · ${C.price}\n${C.neighborhood}, ${C.city} ${C.state}\n\nDM ${C.agentHandle} to book your showing 🏡\n\n#${ht(C.neighborhood)} #${ht(C.city)} #HomeTour #ListingHighlight`;
+
+      case "spotlight":
+        return `Still available — and still stunning 🔑\n\n${C.address}\n${C.neighborhood} · ${C.city}, ${C.state}\n${C.price} · ${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\n\nIf you've been on the fence, now is the time. Reach out to ${C.agentFirst} to schedule a private showing.\n\n${C.agentPhone}\n\n${tags} #StillAvailable #DreamHome`;
+
+      case "openhouse-promo":
+        return `📅 OPEN HOUSE — ${C.openHouseDate}\n\n${C.address}\n${C.neighborhood} · ${C.city}, ${C.state} ${C.zip}\n🕐 ${C.openHouseTime}\n\n${C.price} · ${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\n\nCome see it in person — no appointment needed! ${C.agentHandle} will be on-site to answer all your questions.\n\n${tags} #OpenHouse #${ht(C.neighborhood)}OpenHouse`;
+
+      case "openhouse-live":
+        return `We're live at ${C.address}! 🏡\n\nOpen house is happening NOW — ${C.openHouseTime}. Come on by!\n\n${C.neighborhood} · ${C.city}, ${C.state} · ${C.price}\n\n${C.agentHandle}\n\n${tags} #OpenHouseToday`;
+
+      case "recap":
+        return `What an amazing open house! 🎉\n\nThank you to everyone who came out to see ${C.address} in ${C.neighborhood}. The response has been incredible.\n\nStill interested? It's not too late — contact ${C.agentFirst} to schedule a private showing.\n\n${C.price} · ${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\n${C.agentPhone}\n\n${tags} #OpenHouseRecap`;
+
+      default: return "";
+    }
+  }
+
+  // ── Populate header ──────────────────────────────────────────
   document.title = C.address + " | Campaign Calendar";
   set("hdr-address", C.address);
   set("hdr-meta", C.city + ", " + C.state + " " + C.zip + " · " + C.neighborhood);
   document.getElementById("hdr-avatar").textContent = initials(C.agentName);
 
   const pills = document.getElementById("hdr-pills");
-  const pillData = [
+  [
     { label: C.price + " List Price", cls: "gold" },
     { label: C.beds + " Beds" },
     { label: C.baths + " Baths" },
     { label: C.sqft + " sqft" },
-  ];
-  pillData.forEach(p => {
-    const span = el("span", "pill" + (p.cls ? " " + p.cls : ""), p.label);
-    pills.appendChild(span);
+  ].forEach(p => {
+    pills.appendChild(el("span", "pill" + (p.cls ? " " + p.cls : ""), p.label));
   });
 
   set("hdr-agent-name", C.agentName);
@@ -504,25 +572,46 @@
   // ── Populate summary ─────────────────────────────────────────
   set("sum-price", C.price);
   set("sum-shoot", C.shootDate);
-  set("sum-live", C.goLiveDate);
-  set("sum-open", C.openHouseDate + " · " + C.openHouseTime);
+  set("sum-live",  C.goLiveDate);
+  set("sum-open",  C.openHouseDate + " · " + C.openHouseTime);
   set("sum-package", C.packagePrice + " The Listing Campaign");
 
-  // ── Compute dates ────────────────────────────────────────────
-  const shoot   = parseDate(C.shootDate);
-  const live    = parseDate(C.goLiveDate);
-  const openH   = parseDate(C.openHouseDate);
+  // ── Deliverables section ─────────────────────────────────────
+  if (C.mediaUrl || C.marketingKitUrl) {
+    document.getElementById("deliverables-section").style.display = "block";
+    const btnWrap = document.getElementById("delivery-buttons");
+    if (C.mediaUrl) {
+      const a = document.createElement("a");
+      a.href = C.mediaUrl;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = "📸  Download Photos & Video";
+      a.style.cssText = "display:block;text-align:center;background:var(--teal);color:white;font-weight:700;font-size:14px;padding:13px 20px;border-radius:8px;text-decoration:none;letter-spacing:0.3px";
+      btnWrap.appendChild(a);
+    }
+    if (C.marketingKitUrl) {
+      const a = document.createElement("a");
+      a.href = C.marketingKitUrl;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = "📦  View Full Marketing Kit";
+      a.style.cssText = "display:block;text-align:center;background:var(--navy);color:white;font-weight:700;font-size:14px;padding:13px 20px;border-radius:8px;text-decoration:none;letter-spacing:0.3px";
+      btnWrap.appendChild(a);
+    }
+  }
 
-  // Social push days relative to live (day 1)
-  const social1 = live;                    // go-live day
-  const social2 = addDays(live, 2);        // Day 3
-  const social3 = addDays(live, 6);        // Day 7
-  const social4 = addDays(openH, -1);      // Day before open house
-  const social5 = addDays(openH, 1);       // Day after open house
-  const email1  = live;                    // same as go-live
-  const email2  = addDays(live, 3);        // Mid-week follow
-  const email3  = addDays(openH, -3);      // Open house promo
-  const follow1 = addDays(openH, 2);       // Post-open house follow-up
+  // ── Compute dates ────────────────────────────────────────────
+  const shoot  = parseDate(C.shootDate);
+  const live   = parseDate(C.goLiveDate);
+  const openH  = parseDate(C.openHouseDate);
+
+  const social2 = addDays(live,  2);
+  const social3 = addDays(live,  6);
+  const social4 = addDays(openH, -1);
+  const social5 = addDays(openH,  1);
+  const email2  = addDays(live,  3);
+  const email3  = addDays(openH, -3);
+  const follow1 = addDays(openH,  2);
 
   // ── Card builder ─────────────────────────────────────────────
   const root = document.getElementById("calendar-root");
@@ -549,6 +638,26 @@
     return `<div class="note-box ${cls}">${html}</div>`;
   }
 
+  function makeCaptionBox(type) {
+    const text = caption(type);
+    if (!text) return "";
+    const uid = "cap-" + type + "-" + Math.random().toString(36).slice(2);
+    return `<div class="caption-wrap">
+      <div class="caption-header">
+        <span class="caption-label">📋 Ready-to-Post Caption</span>
+        <button class="copy-btn" onclick="(function(btn){
+          var t=document.getElementById('${uid}').innerText;
+          navigator.clipboard.writeText(t).then(function(){
+            btn.textContent='Copied ✓';
+            btn.classList.add('copied');
+            setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000);
+          });
+        })(this)">Copy</button>
+      </div>
+      <div class="caption-text" id="${uid}">${text.replace(/</g,"&lt;").replace(/>/g,"&gt;")}</div>
+    </div>`;
+  }
+
   function addPhaseHeader(label, colorCls, barCls) {
     const ph = el("div", "phase-header");
     ph.innerHTML = `<div class="phase-bar ${barCls}"></div>
@@ -557,7 +666,7 @@
     root.appendChild(ph);
   }
 
-  function addCard({ date, title, subtitle, colorCls, badgeCls, featured, tasks, notes, open }) {
+  function addCard({ date, title, subtitle, colorCls, badgeCls, featured, tasks, notes, caption: capType, open }) {
     const card = el("div", "day-card" + (featured ? " featured" : ""));
     const header = el("div", "card-header");
     header.innerHTML = `
@@ -574,12 +683,13 @@
     const body = el("div", "card-body" + (open ? " open" : ""));
     let bodyHTML = '<ul class="task-list">' + tasks.join("") + "</ul>";
     if (notes) bodyHTML += notes.join("");
+    if (capType) bodyHTML += makeCaptionBox(capType);
     body.innerHTML = bodyHTML;
 
     header.addEventListener("click", function () {
       body.classList.toggle("open");
-      const chev = this.querySelector(".chevron");
-      chev.style.transform = body.classList.contains("open") ? "rotate(180deg)" : "";
+      this.querySelector(".chevron").style.transform =
+        body.classList.contains("open") ? "rotate(180deg)" : "";
     });
 
     card.appendChild(header);
@@ -594,10 +704,8 @@
     date: shoot,
     title: "📸 Photo & Video Shoot",
     subtitle: "On-site production day",
-    colorCls: "c-shoot",
-    badgeCls: "c-shoot",
-    featured: true,
-    open: true,
+    colorCls: "c-shoot", badgeCls: "c-shoot",
+    featured: true, open: true,
     tasks: [
       makeTask("📸", "c-shoot", "Photography Session", "Interior + exterior, twilight if included. Agent should ensure property is show-ready by shoot time.", "All day"),
       makeTask("🎬", "c-shoot", "Video Walkthrough", "Cinematic walk-through footage captured for social and MLS.", ""),
@@ -613,12 +721,11 @@
     date: addDays(shoot, 1),
     title: "✏️ Post-Production",
     subtitle: "Editing & asset delivery",
-    colorCls: "c-shoot",
-    badgeCls: "c-shoot",
+    colorCls: "c-shoot", badgeCls: "c-shoot",
     tasks: [
       makeTask("🖥️", "c-shoot", "Photo Editing", "Color grading, HDR blending, and sky replacement as needed.", ""),
       makeTask("🎞️", "c-shoot", "Video Edit", "Music, color grade, title cards, and final export.", ""),
-      makeTask("📦", "c-shoot", "Asset Delivery", `Dropbox link delivered to ${C.agentName} with all files.`, "By EOD"),
+      makeTask("📦", "c-shoot", "Asset Delivery", `All files delivered to ${C.agentName} via media link above.`, "By EOD"),
     ],
     notes: []
   });
@@ -630,9 +737,9 @@
     date: live,
     title: "🚀 Listing Goes Live",
     subtitle: "MLS · Zillow · Social · Email",
-    colorCls: "c-live",
-    badgeCls: "c-live",
+    colorCls: "c-live", badgeCls: "c-live",
     featured: true,
+    caption: "launch",
     tasks: [
       makeTask("🏠", "c-live", "MLS Entry Active", "Listing pushed to MLS with final photos, price, and description.", "9:00 AM"),
       makeTask("🌐", "c-live", "Property Website Live", `Branded property site goes live. Share the link with ${C.agentFirst}.`, "9:00 AM"),
@@ -648,8 +755,8 @@
     date: social2,
     title: "📱 Social Post #2",
     subtitle: "Feature highlight post",
-    colorCls: "c-social",
-    badgeCls: "c-social",
+    colorCls: "c-social", badgeCls: "c-social",
+    caption: "feature",
     tasks: [
       makeTask("📱", "c-social", "Instagram Story Series", `Behind-the-scenes or feature highlight. Promotes: ${C.highlights}.`, "10:00 AM"),
       makeTask("📘", "c-social", "Facebook Share", "Cross-post to Facebook business page with full description.", "10:00 AM"),
@@ -661,8 +768,7 @@
     date: email2,
     title: "📧 Email Follow-Up",
     subtitle: "Mid-campaign check-in",
-    colorCls: "c-email",
-    badgeCls: "c-email",
+    colorCls: "c-email", badgeCls: "c-email",
     tasks: [
       makeTask("📧", "c-email", "Email Blast #2", "Activity update + call to schedule a showing. Includes listing stats.", "10:00 AM"),
     ],
@@ -675,8 +781,8 @@
     date: social3,
     title: "📱 Social Post #3",
     subtitle: "One-week spotlight",
-    colorCls: "c-social",
-    badgeCls: "c-social",
+    colorCls: "c-social", badgeCls: "c-social",
+    caption: "spotlight",
     tasks: [
       makeTask("📱", "c-social", "One-Week Spotlight Reel", `Short video reel or carousel highlighting ${C.neighborhood} lifestyle.`, "10:00 AM"),
       makeTask("🔁", "c-social", "Boost Optimization", "Review ad performance; reallocate budget to best-performing creative.", ""),
@@ -691,8 +797,7 @@
     date: email3,
     title: "📧 Open House Promo",
     subtitle: "Email blast — save the date",
-    colorCls: "c-email",
-    badgeCls: "c-email",
+    colorCls: "c-email", badgeCls: "c-email",
     tasks: [
       makeTask("📧", "c-email", "Open House Email Blast", `"Join us this ${fmt(openH, "dow")}!" email with date, time, and RSVP link.`, "10:00 AM"),
     ],
@@ -703,8 +808,8 @@
     date: social4,
     title: "📱 Pre-Open House Post",
     subtitle: "Final push before open house",
-    colorCls: "c-social",
-    badgeCls: "c-social",
+    colorCls: "c-social", badgeCls: "c-social",
+    caption: "openhouse-promo",
     tasks: [
       makeTask("📱", "c-social", "Countdown Story", "Instagram story countdown sticker + open house details.", "9:00 AM"),
       makeTask("📣", "c-social", "Facebook Event", "Boost open house event post with neighborhood geo-targeting.", "9:00 AM"),
@@ -716,9 +821,9 @@
     date: openH,
     title: "🏡 Open House",
     subtitle: C.openHouseTime,
-    colorCls: "c-open",
-    badgeCls: "c-open",
+    colorCls: "c-open", badgeCls: "c-open",
     featured: true,
+    caption: "openhouse-live",
     tasks: [
       makeTask("🏡", "c-open", "Open House Event", `${C.address} · ${C.openHouseTime}. Signage, lockbox, and printed feature sheets ready.`, C.openHouseTime),
       makeTask("📸", "c-open", "Live Social Coverage", "Stories + live posts during open house. Tag location.", "During"),
@@ -736,8 +841,8 @@
     date: social5,
     title: "📱 Post Open House",
     subtitle: "Thank you + recap post",
-    colorCls: "c-social",
-    badgeCls: "c-social",
+    colorCls: "c-social", badgeCls: "c-social",
+    caption: "recap",
     tasks: [
       makeTask("📱", "c-social", "Open House Recap Post", "Thank-you graphic + \"We had a great turnout!\" copy. Tag attendees if possible.", "10:00 AM"),
     ],
@@ -748,10 +853,9 @@
     date: follow1,
     title: "📧 Post Open House Email",
     subtitle: "Follow-up to all leads",
-    colorCls: "c-follow",
-    badgeCls: "c-follow",
+    colorCls: "c-follow", badgeCls: "c-follow",
     tasks: [
-      makeTask("📧", "c-follow", "Lead Follow-Up Email", `Personalized follow-up to open house attendees. CTA: schedule private showing.`, "10:00 AM"),
+      makeTask("📧", "c-follow", "Lead Follow-Up Email", "Personalized follow-up to open house attendees. CTA: schedule private showing.", "10:00 AM"),
       makeTask("📊", "c-follow", "Campaign Report", `${C.csName} sends full campaign analytics report to ${C.agentName}: impressions, clicks, email opens, ad reach.`, "EOD"),
     ],
     notes: [
@@ -760,8 +864,7 @@
   });
 
   // ─── FOOTER ──────────────────────────────────────────────────
-  const footer = document.getElementById("site-footer");
-  footer.innerHTML = `
+  document.getElementById("site-footer").innerHTML = `
     <strong>Coral Cove Media</strong> &nbsp;·&nbsp;
     <a href="tel:${C.csPhone.replace(/\D/g, "")}">${C.csPhone}</a> &nbsp;·&nbsp;
     The Listing Campaign · ${C.packagePrice}<br>
