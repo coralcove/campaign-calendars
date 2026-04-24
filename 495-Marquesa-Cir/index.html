@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Campaign Calendar</title>
+
+  <!-- ============================================================
+       CORAL COVE MEDIA — LISTING CAMPAIGN CALENDAR
+       ============================================================
+       HOW TO USE THIS TEMPLATE
+       1. Copy the entire _template folder
+       2. Rename the copy to the property slug (e.g. 123-tidewater-ln)
+       3. Edit ONLY the CONFIG block below
+       4. Commit to GitHub — live in ~90 seconds
+       ============================================================ -->
+
+  <script>
+    // ============================================================
+    // CONFIG — FILL IN THESE 20 FIELDS ONLY. DO NOT EDIT BELOW.
+    // ============================================================
+    const CONFIG = {
+      // Property
+      address:       "495 Marquesa Cir",
+      city:          "St Johns",
+      state:         "FL",
+      zip:           "32259",
+      price:         "$1,100,000",
+      beds:          "4",
+      baths:         "3",
+      sqft:          "2,549",
+      highlights:    "lagoon views, private lagoon access, fully furnished",
+      neighborhood:  "Beachwalk",
+
+      // Agent
+      agentName:     "Iviannette Figueroa",
+      agentFirst:    "Iviannette",
+      brokerage:     "1 Realty Corp",
+      agentPhone:    "(904) 826-5890",
+      agentEmail:    "fiviannette@gmail.com",
+      agentHandle:   "@fiviannette",
+
+      // Campaign Dates
+      shootDate:     "Tue Apr 21, 2026",
+      goLiveDate:    "Thu Apr 23, 2026",
+      openHouseDate: "Sat Apr 25, 2026",
+      openHouseTime: "1:00–4:00 PM",
+
+      // Coral Cove Contact
+      csName:        "Melissa",
+      csPhone:       "(904) 478-8600",
+      packagePrice:  "$600",
+
+      // Deliverables (HDPH delivery link — paste from delivery email)
+         deliveryUrl:   "https://coralcovemedia.hd.pics/Media/marketingkit2.asp?nSiteID=2994128",
+    };
+    // ============================================================
+    // END CONFIG — DO NOT EDIT ANYTHING BELOW THIS LINE
+    // ============================================================
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0d2137;
+      --teal:   #1a7a6e;
+      --teal2:  #22998a;
+      --gold:   #c9922a;
+      --light:  #f4f7f9;
+      --border: #dce3e8;
+      --text:   #1e2d3d;
+      --muted:  #6b7e8f;
+      --white:  #ffffff;
+      --red:    #c94040;
+      --green:  #2e7d52;
+      --blue:   #1a5fa0;
+      --purple: #6a4fa0;
+      --orange: #c96a28;
+      --radius: 10px;
+      --shadow: 0 2px 10px rgba(13,33,55,0.10);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      min-height: 100vh;
+      padding-bottom: 40px;
+    }
+
+    /* ─── HEADER ─── */
+    .site-header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 0 20px;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+    .brand-logo {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .brand-tagline {
+      font-size: 11px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.5px;
+    }
+    .header-property {
+      padding: 18px 0 20px;
+    }
+    .property-address {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+    .property-meta {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 14px;
+    }
+    .property-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .pill {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.85);
+    }
+    .pill.gold { background: rgba(201,146,42,0.25); border-color: rgba(201,146,42,0.45); color: #f0c060; }
+    .agent-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .agent-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; color: white;
+      flex-shrink: 0;
+    }
+    .agent-info { flex: 1; min-width: 0; }
+    .agent-name { font-size: 14px; font-weight: 700; }
+    .agent-brokerage { font-size: 11px; color: rgba(255,255,255,0.55); }
+    .agent-contact { text-align: right; flex-shrink: 0; }
+    .agent-contact a { color: var(--gold); font-size: 12px; text-decoration: none; display: block; }
+    .agent-contact a:hover { text-decoration: underline; }
+
+    /* ─── SECTION LABEL ─── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 28px 20px 10px;
+    }
+
+    /* ─── PHASE HEADER ─── */
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 20px 4px;
+    }
+    .phase-bar {
+      height: 3px;
+      border-radius: 2px;
+      flex: 1;
+    }
+    .phase-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ─── DAY CARDS ─── */
+    .day-card {
+      margin: 0 12px 8px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .day-card.featured { border-color: var(--gold); }
+    .day-card.featured .card-header { background: #fffbf2; }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      cursor: pointer;
+      gap: 12px;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .card-header:active { background: #f8f9fa; }
+
+    .day-badge {
+      width: 46px; height: 46px;
+      border-radius: 10px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .day-badge .dow { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0.75; }
+    .day-badge .dom { font-size: 22px; font-weight: 800; }
+
+    .card-summary { flex: 1; min-width: 0; }
+    .card-title { font-size: 15px; font-weight: 700; line-height: 1.2; margin-bottom: 2px; }
+    .card-subtitle { font-size: 12px; color: var(--muted); }
+
+    .card-status {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+    .chevron {
+      font-size: 12px;
+      color: var(--muted);
+      transition: transform 0.2s;
+    }
+
+    .card-body {
+      display: none;
+      padding: 0 16px 16px;
+      border-top: 1px solid var(--border);
+    }
+    .card-body.open { display: block; }
+
+    /* ─── TASK LIST ─── */
+    .task-list { list-style: none; padding-top: 10px; }
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .task-item:last-child { border-bottom: none; }
+    .task-icon {
+      width: 28px; height: 28px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .task-text { flex: 1; min-width: 0; }
+    .task-name { font-size: 13px; font-weight: 600; line-height: 1.3; }
+    .task-desc { font-size: 12px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+    .task-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+
+    /* ─── NOTE BOXES ─── */
+    .note-box {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .note-box.teal { background: #e8f5f3; border-left: 3px solid var(--teal); color: #1a5a52; }
+    .note-box.gold { background: #fdf5e6; border-left: 3px solid var(--gold); color: #7a5510; }
+    .note-box.blue { background: #e8f0fa; border-left: 3px solid var(--blue); color: #1a4070; }
+
+    /* ─── SUMMARY WIDGET ─── */
+    .summary-card {
+      margin: 0 12px 8px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+    .summary-cell {
+      background: var(--white);
+      padding: 14px 16px;
+    }
+    .summary-cell.full { grid-column: 1 / -1; }
+    .summary-key { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .summary-val { font-size: 16px; font-weight: 700; color: var(--text); }
+    .summary-val.price { color: var(--teal); font-size: 20px; }
+    .summary-val.small { font-size: 13px; font-weight: 600; }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+      margin: 24px 12px 0;
+      padding: 16px;
+      background: var(--navy);
+      border-radius: var(--radius);
+      color: rgba(255,255,255,0.65);
+      font-size: 12px;
+      text-align: center;
+    }
+    .site-footer a { color: var(--gold); text-decoration: none; }
+    .site-footer strong { color: white; }
+
+    /* ─── COLORS BY PHASE ─── */
+    .c-shoot   { background: #edf4ff; color: var(--blue); }
+    .c-live    { background: #e8f5f0; color: var(--green); }
+    .c-social  { background: #f3ecfc; color: var(--purple); }
+    .c-email   { background: #fff4e6; color: var(--orange); }
+    .c-open    { background: #ffeaea; color: var(--red); }
+    .c-follow  { background: #e8f5f0; color: var(--green); }
+    .c-gold    { background: #fff8e1; color: var(--gold); }
+    .phase-shoot  { color: var(--blue); }
+    .phase-live   { color: var(--green); }
+    .phase-push   { color: var(--purple); }
+    .phase-open   { color: var(--red); }
+    .phase-follow { color: var(--teal); }
+    .bar-shoot  { background: var(--blue); }
+    .bar-live   { background: var(--green); }
+    .bar-push   { background: var(--purple); }
+    .bar-open   { background: var(--red); }
+    .bar-follow { background: var(--teal); }
+
+    @media (min-width: 640px) {
+      .day-card, .summary-card { margin-left: auto; margin-right: auto; max-width: 600px; }
+      .site-footer { max-width: 576px; margin-left: auto; margin-right: auto; }
+      .section-label, .phase-header { max-width: 624px; margin-left: auto; margin-right: auto; }
+      .header-brand, .header-property { max-width: 600px; margin-left: auto; margin-right: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── SITE HEADER ─── -->
+<header class="site-header">
+  <div class="header-brand">
+    <span class="brand-logo">Coral Cove Media</span>
+    <span class="brand-tagline">Listing Campaign Calendar</span>
+  </div>
+  <div class="header-property">
+    <div class="property-address" id="hdr-address"></div>
+    <div class="property-meta" id="hdr-meta"></div>
+    <div class="property-pills" id="hdr-pills"></div>
+    <div class="agent-row">
+      <div class="agent-avatar" id="hdr-avatar"></div>
+      <div class="agent-info">
+        <div class="agent-name" id="hdr-agent-name"></div>
+        <div class="agent-brokerage" id="hdr-brokerage"></div>
+      </div>
+      <div class="agent-contact">
+        <a id="hdr-phone" href="#"></a>
+        <a id="hdr-email" href="#"></a>
+        <a id="hdr-handle" href="#"></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── CAMPAIGN SUMMARY ─── -->
+<div class="section-label">Campaign Overview</div>
+<div class="summary-card">
+  <div class="summary-grid">
+    <div class="summary-cell full">
+      <div class="summary-key">List Price</div>
+      <div class="summary-val price" id="sum-price"></div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-key">Photo Shoot</div>
+      <div class="summary-val small" id="sum-shoot"></div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-key">Goes Live</div>
+      <div class="summary-val small" id="sum-live"></div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-key">Open House</div>
+      <div class="summary-val small" id="sum-open"></div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-key">Package</div>
+      <div class="summary-val small" id="sum-package"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CALENDAR ─── -->
+<div class="section-label">Campaign Schedule</div>
+<div id="calendar-root"></div>
+
+<!-- ─── FOOTER ─── -->
+<div class="site-footer" id="site-footer"></div>
+
+<script>
+// ================================================================
+// CALENDAR ENGINE — DO NOT EDIT
+// ================================================================
+(function () {
+  "use strict";
+
+  // ── Helpers ──────────────────────────────────────────────────
+  function el(tag, cls, html) {
+    const d = document.createElement(tag);
+    if (cls) d.className = cls;
+    if (html !== undefined) d.innerHTML = html;
+    return d;
+  }
+  function set(id, html) {
+    const e = document.getElementById(id);
+    if (e) e.innerHTML = html;
+  }
+  function setHref(id, href, text) {
+    const e = document.getElementById(id);
+    if (e) { e.href = href; e.textContent = text; }
+  }
+  function initials(name) {
+    return name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
+  }
+
+  // Parse a date string like "Mon May 11, 2026"
+  function parseDate(str) {
+    return new Date(str);
+  }
+
+  // Add N calendar days
+  function addDays(date, n) {
+    const d = new Date(date);
+    d.setDate(d.getDate() + n);
+    return d;
+  }
+
+  // Format: "Mon", "11", "May 11"
+  function fmt(date, mode) {
+    const DOW  = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    const MON  = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    if (mode === "dow")   return DOW[date.getDay()];
+    if (mode === "dom")   return date.getDate();
+    if (mode === "short") return MON[date.getMonth()] + " " + date.getDate();
+    if (mode === "full")  return DOW[date.getDay()] + ", " + MON[date.getMonth()] + " " + date.getDate();
+    return "";
+  }
+
+  // ── Populate header ──────────────────────────────────────────
+  const C = CONFIG;
+  document.title = C.address + " | Campaign Calendar";
+  set("hdr-address", C.address);
+  set("hdr-meta", C.city + ", " + C.state + " " + C.zip + " · " + C.neighborhood);
+  document.getElementById("hdr-avatar").textContent = initials(C.agentName);
+
+  const pills = document.getElementById("hdr-pills");
+  const pillData = [
+    { label: C.price + " List Price", cls: "gold" },
+    { label: C.beds + " Beds" },
+    { label: C.baths + " Baths" },
+    { label: C.sqft + " sqft" },
+  ];
+  pillData.forEach(p => {
+    const span = el("span", "pill" + (p.cls ? " " + p.cls : ""), p.label);
+    pills.appendChild(span);
+  });
+
+  set("hdr-agent-name", C.agentName);
+  set("hdr-brokerage", C.brokerage);
+  setHref("hdr-phone", "tel:" + C.agentPhone.replace(/\D/g, ""), C.agentPhone);
+  setHref("hdr-email", "mailto:" + C.agentEmail, C.agentEmail);
+  setHref("hdr-handle", "#", C.agentHandle);
+
+  // ── Populate summary ─────────────────────────────────────────
+  set("sum-price", C.price);
+  set("sum-shoot", C.shootDate);
+  set("sum-live", C.goLiveDate);
+  set("sum-open", C.openHouseDate + " · " + C.openHouseTime);
+  set("sum-package", C.packagePrice + " The Listing Campaign");
+
+  // ── Compute dates ────────────────────────────────────────────
+  const shoot   = parseDate(C.shootDate);
+  const live    = parseDate(C.goLiveDate);
+  const openH   = parseDate(C.openHouseDate);
+
+  // Social push days relative to live (day 1)
+  const social1 = live;                    // go-live day
+  const social2 = addDays(live, 2);        // Day 3
+  const social3 = addDays(live, 6);        // Day 7
+  const social4 = addDays(openH, -1);      // Day before open house
+  const social5 = addDays(openH, 1);       // Day after open house
+  const email1  = live;                    // same as go-live
+  const email2  = addDays(live, 3);        // Mid-week follow
+  const email3  = addDays(openH, -3);      // Open house promo
+  const follow1 = addDays(openH, 2);       // Post-open house follow-up
+
+  // ── Card builder ─────────────────────────────────────────────
+  const root = document.getElementById("calendar-root");
+
+  function makeBadge(date, colorCls) {
+    return `<div class="day-badge ${colorCls}">
+      <span class="dow">${fmt(date, "dow")}</span>
+      <span class="dom">${fmt(date, "dom")}</span>
+    </div>`;
+  }
+
+  function makeTask(icon, iconCls, name, desc, time) {
+    return `<li class="task-item">
+      <div class="task-icon ${iconCls}">${icon}</div>
+      <div class="task-text">
+        <div class="task-name">${name}</div>
+        ${desc ? `<div class="task-desc">${desc}</div>` : ""}
+      </div>
+      ${time ? `<div class="task-time">${time}</div>` : ""}
+    </li>`;
+  }
+
+  function makeNote(cls, html) {
+    return `<div class="note-box ${cls}">${html}</div>`;
+  }
+
+  function addPhaseHeader(label, colorCls, barCls) {
+    const ph = el("div", "phase-header");
+    ph.innerHTML = `<div class="phase-bar ${barCls}"></div>
+      <span class="phase-label ${colorCls}">${label}</span>
+      <div class="phase-bar ${barCls}"></div>`;
+    root.appendChild(ph);
+  }
+
+  function addCard({ date, title, subtitle, colorCls, badgeCls, featured, tasks, notes, open }) {
+    const card = el("div", "day-card" + (featured ? " featured" : ""));
+    const header = el("div", "card-header");
+    header.innerHTML = `
+      ${makeBadge(date, badgeCls)}
+      <div class="card-summary">
+        <div class="card-title">${title}</div>
+        <div class="card-subtitle">${subtitle}</div>
+      </div>
+      <div class="card-status">
+        <div class="status-dot"></div>
+        <span class="chevron">▼</span>
+      </div>`;
+
+    const body = el("div", "card-body" + (open ? " open" : ""));
+    let bodyHTML = '<ul class="task-list">' + tasks.join("") + "</ul>";
+    if (notes) bodyHTML += notes.join("");
+    body.innerHTML = bodyHTML;
+
+    header.addEventListener("click", function () {
+      body.classList.toggle("open");
+      const chev = this.querySelector(".chevron");
+      chev.style.transform = body.classList.contains("open") ? "rotate(180deg)" : "";
+    });
+
+    card.appendChild(header);
+    card.appendChild(body);
+    root.appendChild(card);
+  }
+
+  // ─── PHASE 1: PRODUCTION ─────────────────────────────────────
+  addPhaseHeader("Phase 1 — Production", "phase-shoot", "bar-shoot");
+
+  addCard({
+    date: shoot,
+    title: "📸 Photo & Video Shoot",
+    subtitle: "On-site production day",
+    colorCls: "c-shoot",
+    badgeCls: "c-shoot",
+    featured: true,
+    open: true,
+    tasks: [
+      makeTask("📸", "c-shoot", "Photography Session", "Interior + exterior, twilight if included. Agent should ensure property is show-ready by shoot time.", "All day"),
+      makeTask("🎬", "c-shoot", "Video Walkthrough", "Cinematic walk-through footage captured for social and MLS.", ""),
+      makeTask("🚁", "c-shoot", "Aerial/Drone", "FAA-compliant exterior aerial footage and stills (weather permitting).", ""),
+      makeTask("📐", "c-shoot", "Floor Plan", "Measured floor plan captured on-site.", ""),
+    ],
+    notes: [
+      makeNote("teal", `<strong>Coral Cove Production Note:</strong> ${C.csName} will coordinate access and arrival time. Questions? Call ${C.csPhone}.`),
+    ]
+  });
+
+  addCard({
+    date: addDays(shoot, 1),
+    title: "✏️ Post-Production",
+    subtitle: "Editing & asset delivery",
+    colorCls: "c-shoot",
+    badgeCls: "c-shoot",
+    tasks: [
+      makeTask("🖥️", "c-shoot", "Photo Editing", "Color grading, HDR blending, and sky replacement as needed.", ""),
+      makeTask("🎞️", "c-shoot", "Video Edit", "Music, color grade, title cards, and final export.", ""),
+      makeTask("📦", "c-shoot", "Asset Delivery", `Dropbox link delivered to ${C.agentName} with all files.`, "By EOD"),
+    ],
+    notes: []
+  });
+
+  // ─── PHASE 2: LAUNCH ──────────────────────────────────────────
+  addPhaseHeader("Phase 2 — Launch", "phase-live", "bar-live");
+
+  addCard({
+    date: live,
+    title: "🚀 Listing Goes Live",
+    subtitle: "MLS · Zillow · Social · Email",
+    colorCls: "c-live",
+    badgeCls: "c-live",
+    featured: true,
+    tasks: [
+      makeTask("🏠", "c-live", "MLS Entry Active", "Listing pushed to MLS with final photos, price, and description.", "9:00 AM"),
+      makeTask("🌐", "c-live", "Property Website Live", `Branded property site goes live. Share the link with ${C.agentFirst}.`, "9:00 AM"),
+      makeTask("📣", "c-live", "Instagram Launch Post", `"Just Listed" carousel post published to ${C.agentHandle}. Paid boost activated.`, "10:00 AM"),
+      makeTask("📧", "c-live", "Email Blast #1", `"Just Listed" announcement sent to sphere-of-influence list. CTA: tour request.`, "11:00 AM"),
+    ],
+    notes: [
+      makeNote("gold", `<strong>⚠ Agent Action Required:</strong> Confirm photos and description are approved before 8:00 AM today. Contact ${C.csName} at ${C.csPhone} to approve.`),
+    ]
+  });
+
+  addCard({
+    date: social2,
+    title: "📱 Social Post #2",
+    subtitle: "Feature highlight post",
+    colorCls: "c-social",
+    badgeCls: "c-social",
+    tasks: [
+      makeTask("📱", "c-social", "Instagram Story Series", `Behind-the-scenes or feature highlight. Promotes: ${C.highlights}.`, "10:00 AM"),
+      makeTask("📘", "c-social", "Facebook Share", "Cross-post to Facebook business page with full description.", "10:00 AM"),
+    ],
+    notes: []
+  });
+
+  addCard({
+    date: email2,
+    title: "📧 Email Follow-Up",
+    subtitle: "Mid-campaign check-in",
+    colorCls: "c-email",
+    badgeCls: "c-email",
+    tasks: [
+      makeTask("📧", "c-email", "Email Blast #2", "Activity update + call to schedule a showing. Includes listing stats.", "10:00 AM"),
+    ],
+    notes: [
+      makeNote("blue", `<strong>Tip:</strong> ${C.agentFirst}, share your showing feedback with ${C.csName} so we can tailor remaining social posts.`),
+    ]
+  });
+
+  addCard({
+    date: social3,
+    title: "📱 Social Post #3",
+    subtitle: "One-week spotlight",
+    colorCls: "c-social",
+    badgeCls: "c-social",
+    tasks: [
+      makeTask("📱", "c-social", "One-Week Spotlight Reel", `Short video reel or carousel highlighting ${C.neighborhood} lifestyle.`, "10:00 AM"),
+      makeTask("🔁", "c-social", "Boost Optimization", "Review ad performance; reallocate budget to best-performing creative.", ""),
+    ],
+    notes: []
+  });
+
+  // ─── PHASE 3: OPEN HOUSE ─────────────────────────────────────
+  addPhaseHeader("Phase 3 — Open House", "phase-open", "bar-open");
+
+  addCard({
+    date: email3,
+    title: "📧 Open House Promo",
+    subtitle: "Email blast — save the date",
+    colorCls: "c-email",
+    badgeCls: "c-email",
+    tasks: [
+      makeTask("📧", "c-email", "Open House Email Blast", `"Join us this ${fmt(openH, "dow")}!" email with date, time, and RSVP link.`, "10:00 AM"),
+    ],
+    notes: []
+  });
+
+  addCard({
+    date: social4,
+    title: "📱 Pre-Open House Post",
+    subtitle: "Final push before open house",
+    colorCls: "c-social",
+    badgeCls: "c-social",
+    tasks: [
+      makeTask("📱", "c-social", "Countdown Story", "Instagram story countdown sticker + open house details.", "9:00 AM"),
+      makeTask("📣", "c-social", "Facebook Event", "Boost open house event post with neighborhood geo-targeting.", "9:00 AM"),
+    ],
+    notes: []
+  });
+
+  addCard({
+    date: openH,
+    title: "🏡 Open House",
+    subtitle: C.openHouseTime,
+    colorCls: "c-open",
+    badgeCls: "c-open",
+    featured: true,
+    tasks: [
+      makeTask("🏡", "c-open", "Open House Event", `${C.address} · ${C.openHouseTime}. Signage, lockbox, and printed feature sheets ready.`, C.openHouseTime),
+      makeTask("📸", "c-open", "Live Social Coverage", "Stories + live posts during open house. Tag location.", "During"),
+      makeTask("📋", "c-open", "Guest List Capture", "Collect contact info for all attendees for follow-up.", "During"),
+    ],
+    notes: [
+      makeNote("teal", `<strong>Coral Cove Supplies:</strong> Feature sheets, QR code card, and sign-in sheet will be delivered by ${C.csName} the morning of the open house.`),
+    ]
+  });
+
+  // ─── PHASE 4: FOLLOW-UP ───────────────────────────────────────
+  addPhaseHeader("Phase 4 — Follow-Up", "phase-follow", "bar-follow");
+
+  addCard({
+    date: social5,
+    title: "📱 Post Open House",
+    subtitle: "Thank you + recap post",
+    colorCls: "c-social",
+    badgeCls: "c-social",
+    tasks: [
+      makeTask("📱", "c-social", "Open House Recap Post", "Thank-you graphic + \"We had a great turnout!\" copy. Tag attendees if possible.", "10:00 AM"),
+    ],
+    notes: []
+  });
+
+  addCard({
+    date: follow1,
+    title: "📧 Post Open House Email",
+    subtitle: "Follow-up to all leads",
+    colorCls: "c-follow",
+    badgeCls: "c-follow",
+    tasks: [
+      makeTask("📧", "c-follow", "Lead Follow-Up Email", `Personalized follow-up to open house attendees. CTA: schedule private showing.`, "10:00 AM"),
+      makeTask("📊", "c-follow", "Campaign Report", `${C.csName} sends full campaign analytics report to ${C.agentName}: impressions, clicks, email opens, ad reach.`, "EOD"),
+    ],
+    notes: [
+      makeNote("teal", `<strong>Campaign Complete!</strong> Questions about results or next steps? Contact ${C.csName} at ${C.csPhone}.`),
+    ]
+  });
+
+  // ─── FOOTER ──────────────────────────────────────────────────
+  const footer = document.getElementById("site-footer");
+  footer.innerHTML = `
+    <strong>Coral Cove Media</strong> &nbsp;·&nbsp;
+    <a href="tel:${C.csPhone.replace(/\D/g, "")}">${C.csPhone}</a> &nbsp;·&nbsp;
+    The Listing Campaign · ${C.packagePrice}<br>
+    <span style="opacity:.6;font-size:11px">Coordinator: ${C.csName} &nbsp;·&nbsp; Agent: ${C.agentName} · ${C.brokerage}</span>
+  `;
+
+})();
+</script>
+</body>
+</html>
