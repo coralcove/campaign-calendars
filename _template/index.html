@@ -49,7 +49,6 @@
       // Coral Cove Contact
       csName:          "Melissa",
       csPhone:         "(904) 478-8600",
-      packagePrice:    "$1,295",
 
       // Deliverables — paste links from HDPH delivery email
       mediaUrl:        "",   // Photos & video download link
@@ -431,13 +430,9 @@
       <div class="summary-key">Goes Live</div>
       <div class="summary-val small" id="sum-live"></div>
     </div>
-    <div class="summary-cell">
+    <div class="summary-cell full">
       <div class="summary-key">Open House</div>
       <div class="summary-val small" id="sum-open"></div>
-    </div>
-    <div class="summary-cell">
-      <div class="summary-key">Package</div>
-      <div class="summary-val small" id="sum-package"></div>
     </div>
   </div>
 </div>
@@ -574,7 +569,6 @@
   set("sum-shoot", C.shootDate);
   set("sum-live",  C.goLiveDate);
   set("sum-open",  C.openHouseDate + " · " + C.openHouseTime);
-  set("sum-package", C.packagePrice + " The Listing Campaign");
 
   // ── Deliverables section ─────────────────────────────────────
   if (C.mediaUrl || C.marketingKitUrl) {
@@ -867,7 +861,7 @@
   document.getElementById("site-footer").innerHTML = `
     <strong>Coral Cove Media</strong> &nbsp;·&nbsp;
     <a href="tel:${C.csPhone.replace(/\D/g, "")}">${C.csPhone}</a> &nbsp;·&nbsp;
-    The Listing Campaign · ${C.packagePrice}<br>
+    The Listing Campaign<br>
     <span style="opacity:.6;font-size:11px">Coordinator: ${C.csName} &nbsp;·&nbsp; Agent: ${C.agentName} · ${C.brokerage}</span>
   `;
 
