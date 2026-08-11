@@ -53,6 +53,7 @@
       // Deliverables — paste links from HDPH delivery email
       mediaUrl:        "",   // Photos & video download link
       marketingKitUrl: "",   // Marketing kit page link
+      assets:          {},
     };
     // ============================================================
     // END CONFIG — DO NOT EDIT ANYTHING BELOW THIS LINE
@@ -385,6 +386,12 @@
       .section-label, .phase-header { max-width: 624px; margin-left: auto; margin-right: auto; }
       .header-brand, .header-property { max-width: 600px; margin-left: auto; margin-right: auto; }
     }
+    .asset-wrap { margin-top: 12px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .asset-header { padding: 8px 12px; background: #f4f7f9; border-bottom: 1px solid var(--border); }
+    .asset-link { display: block; padding: 9px 12px; font-size: 12px; color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--border); background: white; }
+    .asset-link:last-child { border-bottom: none; }
+    .asset-link:active { background: #f4f7f9; }
+
   </style>
 </head>
 <body>
@@ -632,6 +639,15 @@
     return `<div class="note-box ${cls}">${html}</div>`;
   }
 
+  function makeAssetBox(type) {
+    const list = (C.assets && C.assets[type]) || [];
+    if (!list.length) return "";
+    const items = list.map(function (a) {
+      return `<a class="asset-link" href="${a.url}" target="_blank" rel="noopener">&#11015;&nbsp; ${a.name}</a>`;
+    }).join("");
+    return `<div class="asset-wrap"><div class="asset-header"><span class="caption-label">&#128206; Assets for this post</span></div><div class="asset-list">${items}</div></div>`;
+  }
+
   function makeCaptionBox(type) {
     const text = caption(type);
     if (!text) return "";
@@ -677,7 +693,7 @@
     const body = el("div", "card-body" + (open ? " open" : ""));
     let bodyHTML = '<ul class="task-list">' + tasks.join("") + "</ul>";
     if (notes) bodyHTML += notes.join("");
-    if (capType) bodyHTML += makeCaptionBox(capType);
+    if (capType) bodyHTML += makeAssetBox(capType) + makeCaptionBox(capType);
     body.innerHTML = bodyHTML;
 
     header.addEventListener("click", function () {
