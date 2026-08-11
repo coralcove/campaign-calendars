@@ -522,6 +522,7 @@
 
   // ── Caption generator ────────────────────────────────────────
   const C = CONFIG;
+  const HANDLE = String(C.agentHandle || "").trim();
   const tags = `#${ht(C.neighborhood)} #${ht(C.city)}FL #JustListed #RealEstate`;
 
   function caption(type) {
@@ -531,16 +532,16 @@
         return `✨ Just Listed in ${C.neighborhood}!\n\n${C.address} · ${C.city}, ${C.state} ${C.zip}\n${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\nListed at ${C.price}\n\n${C.highlights.split(",").map(h => "✅ " + h.trim()).join("\n")}\n\n📲 DM or call ${C.agentFirst} to schedule your private tour.\n${C.agentPhone}\n\n${tags} #NewListing`;
 
       case "feature":
-        return `Have you seen ${C.address} yet? 👀\n\nHere's what makes this one stand out:\n${C.highlights.split(",").map(h => "→ " + h.trim()).join("\n")}\n\n${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft · ${C.price}\n${C.neighborhood}, ${C.city} ${C.state}\n\nDM ${C.agentHandle} to book your showing 🏡\n\n#${ht(C.neighborhood)} #${ht(C.city)} #HomeTour #ListingHighlight`;
+        return `Have you seen ${C.address} yet? 👀\n\nHere's what makes this one stand out:\n${C.highlights.split(",").map(h => "→ " + h.trim()).join("\n")}\n\n${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft · ${C.price}\n${C.neighborhood}, ${C.city} ${C.state}\n\n${HANDLE ? "DM " + HANDLE : "DM us"} to book your showing 🏡\n\n#${ht(C.neighborhood)} #${ht(C.city)} #HomeTour #ListingHighlight`;
 
       case "spotlight":
         return `Still available — and still stunning 🔑\n\n${C.address}\n${C.neighborhood} · ${C.city}, ${C.state}\n${C.price} · ${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\n\nIf you've been on the fence, now is the time. Reach out to ${C.agentFirst} to schedule a private showing.\n\n${C.agentPhone}\n\n${tags} #StillAvailable #DreamHome`;
 
       case "openhouse-promo":
-        return `📅 OPEN HOUSE — ${C.openHouseDate}\n\n${C.address}\n${C.neighborhood} · ${C.city}, ${C.state} ${C.zip}\n🕐 ${C.openHouseTime}\n\n${C.price} · ${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\n\nCome see it in person — no appointment needed! ${C.agentHandle} will be on-site to answer all your questions.\n\n${tags} #OpenHouse #${ht(C.neighborhood)}OpenHouse`;
+        return `📅 OPEN HOUSE — ${C.openHouseDate}\n\n${C.address}\n${C.neighborhood} · ${C.city}, ${C.state} ${C.zip}\n🕐 ${C.openHouseTime}\n\n${C.price} · ${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\n\nCome see it in person — no appointment needed! ${HANDLE || C.agentFirst} will be on-site to answer all your questions.\n\n${tags} #OpenHouse #${ht(C.neighborhood)}OpenHouse`;
 
       case "openhouse-live":
-        return `We're live at ${C.address}! 🏡\n\nOpen house is happening NOW — ${C.openHouseTime}. Come on by!\n\n${C.neighborhood} · ${C.city}, ${C.state} · ${C.price}\n\n${C.agentHandle}\n\n${tags} #OpenHouseToday`;
+        return `We're live at ${C.address}! 🏡\n\nOpen house is happening NOW — ${C.openHouseTime}. Come on by!\n\n${C.neighborhood} · ${C.city}, ${C.state} · ${C.price}\n\n${HANDLE}\n\n${tags} #OpenHouseToday`;
 
       case "recap":
         return `What an amazing open house! 🎉\n\nThank you to everyone who came out to see ${C.address} in ${C.neighborhood}. The response has been incredible.\n\nStill interested? It's not too late — contact ${C.agentFirst} to schedule a private showing.\n\n${C.price} · ${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\n${C.agentPhone}\n\n${tags} #OpenHouseRecap`;
@@ -569,7 +570,7 @@
   set("hdr-brokerage", C.brokerage);
   setHref("hdr-phone", "tel:" + C.agentPhone.replace(/\D/g, ""), C.agentPhone);
   setHref("hdr-email", "mailto:" + C.agentEmail, C.agentEmail);
-  setHref("hdr-handle", "#", C.agentHandle);
+  if (HANDLE) { setHref("hdr-handle", "#", HANDLE); }
 
   // ── Populate summary ─────────────────────────────────────────
   set("sum-price", C.price);
@@ -753,7 +754,7 @@
     tasks: [
       makeTask("🏠", "c-live", "MLS Entry Active", "Listing pushed to MLS with final photos, price, and description.", "9:00 AM"),
       makeTask("🌐", "c-live", "Property Website Live", `Branded property site goes live. Share the link with ${C.agentFirst}.`, "9:00 AM"),
-      makeTask("📣", "c-live", "Instagram Launch Post", `"Just Listed" carousel post published to ${C.agentHandle}. Paid boost activated.`, "10:00 AM"),
+      makeTask("📣", "c-live", "Instagram Launch Post", `"Just Listed" carousel post published to ${HANDLE}. Paid boost activated.`, "10:00 AM"),
       makeTask("📧", "c-live", "Email Blast #1", `"Just Listed" announcement sent to sphere-of-influence list. CTA: tour request.`, "11:00 AM"),
     ],
     notes: [
