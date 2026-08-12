@@ -44,7 +44,7 @@
       csPhone: "(904) 478-8600",
       mediaUrl: "https://drive.google.com/open?id=1hm2lTXa43q-9QRyueuFBWkcm_KzrUjqV&usp=drive_fs",
       marketingKitUrl: "https://coralcovemedia.hd.pics/Media/marketingkit2.asp?nSiteID=3273330",
-      assets: {"launch":[{"name":"Marketing Kit - Just Listed post","url":"https://coralcovemedia.hd.pics/Media/marketingkit2.asp?nSiteID=3273330#mthumb503"},{"name":"Property website","url":"https://coralcovemedia.hd.pics/3273330"},{"name":"Zillow 3D tour","url":"https://www.zillow.com/view-imx/a5b979fa-4443-46d5-af7b-3d9585befeb9?setAttribution=mls&wl=true&initialViewType=pano&utm_source=dashboard"},{"name":"WEF02530","url":"https://media.hd.pics/2/1gsmo3o9bk.jpg"},{"name":"WEF02527","url":"https://media.hd.pics/2/9v9xw935to.jpg"},{"name":"WEF02494","url":"https://media.hd.pics/2/zn2si28wmv.jpg"},{"name":"WEF02491","url":"https://media.hd.pics/2/gwvskr31ys.jpg"}],"feature":[{"name":"Marketing Kit - stories and posts","url":"https://coralcovemedia.hd.pics/Media/marketingkit2.asp?nSiteID=3273330"},{"name":"WEF02470","url":"https://media.hd.pics/2/2dv4t1liw4.jpg"}],"spotlight":[{"name":"Marketing Kit - This Won’t Last Long post","url":"https://coralcovemedia.hd.pics/Media/marketingkit2.asp?nSiteID=3273330#mthumb506"},{"name":"16007 Hutton Ln, Jacksonville FL","url":"https://vault01.hd.pics/admin/view.aspx?nMediaID=136329598&nBucketID=1"},{"name":"DJI_0751","url":"https://media.hd.pics/2/ikrbwgz95h.jpg"}],"openhouse-promo":[{"name":"Marketing Kit - Open House post","url":"https://coralcovemedia.hd.pics/Media/marketingkit2.asp?nSiteID=3273330#mthumb509"},{"name":"DJI_0745","url":"https://media.hd.pics/2/x9u16sorfq.jpg"}],"openhouse-live":[{"name":"Marketing Kit - social reels","url":"https://coralcovemedia.hd.pics/Media/marketingkit2.asp?nSiteID=3273330"},{"name":"16007 Hutton Ln, Jacksonville FL","url":"https://vault01.hd.pics/admin/view.aspx?nMediaID=136329598&nBucketID=1"},{"name":"WEF02500","url":"https://media.hd.pics/2/20n5s3zwcf.jpg"}],"recap":[{"name":"Marketing Kit - slideshows and flyers","url":"https://coralcovemedia.hd.pics/Media/marketingkit2.asp?nSiteID=3273330"},{"name":"Floor plan - Floor-1","url":"https://media.hd.pics/2/q6deig3ifs.jpg"},{"name":"WEF02503","url":"https://media.hd.pics/2/x3clgo57s8.jpg"},{"name":"WEF02506","url":"https://media.hd.pics/2/6ns14udc5u.jpg"},{"name":"WEF02464","url":"https://media.hd.pics/2/t35u2m0rm8.jpg"}]},
+      assets: {"launch":[{"name":"Marketing Kit - Just Listed post","url":"https://coralcovemedia.hd.pics/view/meld.aspx?s=3273330&m=503"},{"name":"Property website","url":"https://coralcovemedia.hd.pics/3273330"},{"name":"Zillow 3D tour","url":"https://www.zillow.com/view-imx/a5b979fa-4443-46d5-af7b-3d9585befeb9?setAttribution=mls&wl=true&initialViewType=pano&utm_source=dashboard"},{"name":"WEF02530","url":"https://media.hd.pics/2/1gsmo3o9bk.jpg"},{"name":"WEF02527","url":"https://media.hd.pics/2/9v9xw935to.jpg"},{"name":"WEF02494","url":"https://media.hd.pics/2/zn2si28wmv.jpg"},{"name":"WEF02491","url":"https://media.hd.pics/2/gwvskr31ys.jpg"}],"feature":[{"name":"WEF02470","url":"https://media.hd.pics/2/2dv4t1liw4.jpg"}],"spotlight":[{"name":"Marketing Kit - This Won’t Last Long post","url":"https://coralcovemedia.hd.pics/view/meld.aspx?s=3273330&m=506"},{"name":"16007 Hutton Ln, Jacksonville FL","url":"https://vault01.hd.pics/admin/view.aspx?nMediaID=136329598&nBucketID=1"},{"name":"DJI_0751","url":"https://media.hd.pics/2/ikrbwgz95h.jpg"}],"openhouse-promo":[{"name":"Marketing Kit - Open House post","url":"https://coralcovemedia.hd.pics/view/meld.aspx?s=3273330&m=509"},{"name":"DJI_0745","url":"https://media.hd.pics/2/x9u16sorfq.jpg"}],"openhouse-live":[{"name":"16007 Hutton Ln, Jacksonville FL","url":"https://vault01.hd.pics/admin/view.aspx?nMediaID=136329598&nBucketID=1"},{"name":"WEF02500","url":"https://media.hd.pics/2/20n5s3zwcf.jpg"}],"recap":[{"name":"Floor plan","url":"https://media.hd.pics/2/q6deig3ifs.jpg"},{"name":"WEF02503","url":"https://media.hd.pics/2/x3clgo57s8.jpg"},{"name":"WEF02509","url":"https://media.hd.pics/2/hjdrfro9gk.jpg"},{"name":"WEF02455","url":"https://media.hd.pics/2/03qytxtssm.jpg"}]},
     };
     // ============================================================
     // END CONFIG — DO NOT EDIT ANYTHING BELOW THIS LINE
@@ -513,6 +513,7 @@
 
   // ── Caption generator ────────────────────────────────────────
   const C = CONFIG;
+  const HANDLE = String(C.agentHandle || "").trim();
   const tags = `#${ht(C.neighborhood)} #${ht(C.city)}FL #JustListed #RealEstate`;
 
   function caption(type) {
@@ -522,16 +523,16 @@
         return `✨ Just Listed in ${C.neighborhood}!\n\n${C.address} · ${C.city}, ${C.state} ${C.zip}\n${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\nListed at ${C.price}\n\n${C.highlights.split(",").map(h => "✅ " + h.trim()).join("\n")}\n\n📲 DM or call ${C.agentFirst} to schedule your private tour.\n${C.agentPhone}\n\n${tags} #NewListing`;
 
       case "feature":
-        return `Have you seen ${C.address} yet? 👀\n\nHere's what makes this one stand out:\n${C.highlights.split(",").map(h => "→ " + h.trim()).join("\n")}\n\n${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft · ${C.price}\n${C.neighborhood}, ${C.city} ${C.state}\n\nDM ${C.agentHandle} to book your showing 🏡\n\n#${ht(C.neighborhood)} #${ht(C.city)} #HomeTour #ListingHighlight`;
+        return `Have you seen ${C.address} yet? 👀\n\nHere's what makes this one stand out:\n${C.highlights.split(",").map(h => "→ " + h.trim()).join("\n")}\n\n${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft · ${C.price}\n${C.neighborhood}, ${C.city} ${C.state}\n\n${HANDLE ? "DM " + HANDLE : "DM us"} to book your showing 🏡\n\n#${ht(C.neighborhood)} #${ht(C.city)} #HomeTour #ListingHighlight`;
 
       case "spotlight":
         return `Still available — and still stunning 🔑\n\n${C.address}\n${C.neighborhood} · ${C.city}, ${C.state}\n${C.price} · ${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\n\nIf you've been on the fence, now is the time. Reach out to ${C.agentFirst} to schedule a private showing.\n\n${C.agentPhone}\n\n${tags} #StillAvailable #DreamHome`;
 
       case "openhouse-promo":
-        return `📅 OPEN HOUSE — ${C.openHouseDate}\n\n${C.address}\n${C.neighborhood} · ${C.city}, ${C.state} ${C.zip}\n🕐 ${C.openHouseTime}\n\n${C.price} · ${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\n\nCome see it in person — no appointment needed! ${C.agentHandle} will be on-site to answer all your questions.\n\n${tags} #OpenHouse #${ht(C.neighborhood)}OpenHouse`;
+        return `📅 OPEN HOUSE — ${C.openHouseDate}\n\n${C.address}\n${C.neighborhood} · ${C.city}, ${C.state} ${C.zip}\n🕐 ${C.openHouseTime}\n\n${C.price} · ${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\n\nCome see it in person — no appointment needed! ${HANDLE || C.agentFirst} will be on-site to answer all your questions.\n\n${tags} #OpenHouse #${ht(C.neighborhood)}OpenHouse`;
 
       case "openhouse-live":
-        return `We're live at ${C.address}! 🏡\n\nOpen house is happening NOW — ${C.openHouseTime}. Come on by!\n\n${C.neighborhood} · ${C.city}, ${C.state} · ${C.price}\n\n${C.agentHandle}\n\n${tags} #OpenHouseToday`;
+        return `We're live at ${C.address}! 🏡\n\nOpen house is happening NOW — ${C.openHouseTime}. Come on by!\n\n${C.neighborhood} · ${C.city}, ${C.state} · ${C.price}\n\n${HANDLE}\n\n${tags} #OpenHouseToday`;
 
       case "recap":
         return `What an amazing open house! 🎉\n\nThank you to everyone who came out to see ${C.address} in ${C.neighborhood}. The response has been incredible.\n\nStill interested? It's not too late — contact ${C.agentFirst} to schedule a private showing.\n\n${C.price} · ${C.beds} bed · ${C.baths} bath · ${C.sqft} sqft\n${C.agentPhone}\n\n${tags} #OpenHouseRecap`;
@@ -560,7 +561,7 @@
   set("hdr-brokerage", C.brokerage);
   setHref("hdr-phone", "tel:" + C.agentPhone.replace(/\D/g, ""), C.agentPhone);
   setHref("hdr-email", "mailto:" + C.agentEmail, C.agentEmail);
-  setHref("hdr-handle", "#", C.agentHandle);
+  if (HANDLE) { setHref("hdr-handle", "#", HANDLE); }
 
   // ── Populate summary ─────────────────────────────────────────
   set("sum-price", C.price);
@@ -744,7 +745,7 @@
     tasks: [
       makeTask("🏠", "c-live", "MLS Entry Active", "Listing pushed to MLS with final photos, price, and description.", "9:00 AM"),
       makeTask("🌐", "c-live", "Property Website Live", `Branded property site goes live. Share the link with ${C.agentFirst}.`, "9:00 AM"),
-      makeTask("📣", "c-live", "Instagram Launch Post", `"Just Listed" carousel post published to ${C.agentHandle}. Paid boost activated.`, "10:00 AM"),
+      makeTask("📣", "c-live", "Instagram Launch Post", `"Just Listed" carousel post published to ${HANDLE}. Paid boost activated.`, "10:00 AM"),
       makeTask("📧", "c-live", "Email Blast #1", `"Just Listed" announcement sent to sphere-of-influence list. CTA: tour request.`, "11:00 AM"),
     ],
     notes: [
